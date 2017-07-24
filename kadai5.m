@@ -2,7 +2,7 @@
 % 判別分析法を用いて画像二値化せよ．
 % 14NE012 菊池祐介
 
-ORG=imread('gravure_255_rika.jpg'); % 原画像の入力
+ORG=imread('image/org.jpg'); % 原画像の入力
 ORG = rgb2gray(ORG); % カラー画像を白黒濃淡画像へ変換
 imagesc(ORG); colormap(gray); colorbar;
 pause;
