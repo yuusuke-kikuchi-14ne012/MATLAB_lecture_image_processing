@@ -24,7 +24,7 @@ pause; % 一時停止
 ![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai2-1.png)
 図1 グレースケール画像
 
-輝度値は256種類の値を持つため、n階調画像は256をn等分した値を閾値として足し合わせれば良い。
+輝度値は256種類の値を持つため、n階調画像は256をn等分した値を閾値としてn-1個の画像を足し合わせれば良い。
 
 
 % ２階調画像の生成
