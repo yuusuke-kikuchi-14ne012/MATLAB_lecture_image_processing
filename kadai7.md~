@@ -1,0 +1,115 @@
+% 課題7　ダイナミックレンジの拡大
+
+% 画素のダイナミックレンジを０から２５５にせよ。
+
+% 14NE012 菊池祐介
+
+
+標準画像「org.jpg」を原画像とする．この画像は縦480画像，横480画素による正方形のディジタルカラー画像である。
+
+
+ORG = imread('image/org.jpg'); % 画像の読み込み
+
+ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
+
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+
+pause;
+
+
+によって、原画像をグレースケール（輝度値のみの画像）に変換する。
+グレースケール画像を図1に示す。
+
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai7-1.png)
+図1 グレースケール画像
+
+
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+
+pause;
+
+
+以上によって、濃度ヒストグラムを生成する。
+濃度ヒストグラム画像を図2に示す。
+
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai7-2.png)
+図2 濃度ヒストグラム画像
+
+
+ORG = double(ORG);
+mn = min(ORG(:)); % 濃度値の最小値を算出
+mx = max(ORG(:)); % 濃度値の最大値を算出
+ORG = (ORG-mn)/(mx-mn)*255;
+imagesc(ORG); colormap(gray); colorbar; % 画像の表示
+pause;
+ORG = uint8(ORG); % この行について考察せよ
+imhist(ORG); % 濃度ヒストグラムを生成、表示
+
+
+輝度値は256種類の値を持つため、n階調画像は256をn等分した値を閾値としてn-1個の画像を足し合わせれば良い。
+
+
+% ２階調画像の生成
+
+IMG = ORG>128;
+
+imagesc(IMG); colormap(gray); colorbar;  axis image;
+
+pause; % 一時停止
+
+2階調画像を図2に示す。
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai2-2.png)
+図2 2階調画像
+
+% ４階調画像の生成
+
+IMG0 = ORG>64;
+
+IMG1 = ORG>128;
+
+IMG2 = ORG>192;
+
+IMG = IMG0 + IMG1 + IMG2;
+
+imagesc(IMG); colormap(gray); colorbar;  axis image;
+
+pause; % 一時停止
+
+4階調画像を図3に示す。
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai2-3.png)
+図3 4階調画像
+
+% ８階調画像の生成
+
+IMG0 = ORG>32;
+
+IMG1 = ORG>64;
+
+IMG2 = ORG>96;
+
+IMG3 = ORG>128;
+
+IMG4 = ORG>160;
+
+IMG5 = ORG>192;
+
+IMG6 = ORG>224;
+
+IMG = IMG0 + IMG1 + IMG2 + IMG3 + IMG4 + IMG5 + IMG6;
+
+imagesc(IMG); colormap(gray); colorbar;  axis image;
+
+pause; % 一時停止
+
+close;
+
+8階調画像を図4に示す。
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai2-4.png)
+図4 8階調画像
+
+以上の結果より、多階調画像になるほど被写体を鮮明に認識できることがわかる。

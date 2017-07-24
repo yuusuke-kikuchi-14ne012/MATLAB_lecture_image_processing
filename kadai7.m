@@ -1,10 +1,8 @@
 % 課題7　ダイナミックレンジの拡大
 % 画素のダイナミックレンジを０から２５５にせよ． 
-% 下記はサンプルプログラムである． 
-% 課題作成にあたっては「Lenna」以外の画像を用いよ． 
-% 例
+% 14NE012 菊池祐介
 
-ORG = imread('gravure_255_rika.jpg'); % 画像の読み込み
+ORG = imread('image/org.jpg'); % 画像の読み込み
 ORG = rgb2gray(ORG); % 白黒濃淡画像に変換
 imagesc(ORG); colormap(gray); colorbar; % 画像の表示
 pause;
