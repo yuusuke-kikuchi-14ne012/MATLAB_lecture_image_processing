@@ -40,13 +40,45 @@ pause; % 一時停止
 ![サンプリング回数の指定BOX](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-1.png)
 図1 サンプリング回数の指定BOX
 
-while (i <= t) % 繰返しと脱出条件   
+原画像を1/2サンプリングするには，画像を1/2倍に縮小した後，2倍に拡大すればよい．なお，拡大する際には，単純補間するために「box」オプションを設定する。
+従って、以上の処理をn回繰り返すことで1/2、1/4、1/8とサンプリングすることができる。
+
+while (i <= t) % 繰返しと脱出条件
+   
     IMG = imresize(x,0.5); % 画像の縮小
+
     IMG2 = imresize(IMG,i,'box'); % 画像の拡大
+
     i = i * 2; % ２倍に拡大
+
     x = IMG; % 縮小画像をxに代入
+
     imagesc(IMG2); axis image; % 画像の表示
+
     pause; % 一時停止
+
 end
 
 close;
+
+原画像を図2、1/2画像を図3、1/4画像を図4、1/8画像を図5、1/16画像を図6、1/32画像を図7にそれぞれ示す。
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-2.png)
+図2 原画像
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-3.png)
+図3 1/2画像
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-4.png)
+図4 1/4画像
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-5.png)
+図5 1/8画像
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-6.png)
+図6 1/16画像
+
+![原画像](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-7.png)
+図7 1/32画像
+
+このようにサンプリング幅が大きくなると，モザイク状のサンプリング歪みが発生する。
