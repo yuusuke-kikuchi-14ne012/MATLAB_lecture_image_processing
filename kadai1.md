@@ -2,7 +2,7 @@
 % 14NE012 菊池祐介
 
 clear; % 変数のオールクリア
-ORG=imread('image/org.jpg'); % 原画像の入力
+ORG=imread('gravure_255_rika.jpg'); % 原画像の入力
 i = 2; % 変数宣言（初期値）
 x = ORG; % 画像をxに代入
 
@@ -26,3 +26,6 @@ while (i <= t) % 繰返しと脱出条件
 end
 
 close;
+
+![原画像](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/org_img.png?raw=true)  
+図1 原画像
