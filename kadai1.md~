@@ -16,8 +16,8 @@ t = i.^(data + 1);
 imagesc(x); axis image; % ‰æ‘œ‚Ì•\¦
 pause; % ˆê’â~
 
-![Œ´‰æ‘œ](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-1.png)
-}1 Œ´‰æ‘œ
+https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-1.png
+
 
 while (i <= t) % ŒJ•Ô‚µ‚Æ’EoğŒ   
     IMG = imresize(x,0.5); % ‰æ‘œ‚Ìk¬
@@ -29,3 +29,6 @@ while (i <= t) % ŒJ•Ô‚µ‚Æ’EoğŒ
 end
 
 close;
+
+![Œ´‰æ‘œ](https://github.com/mackhasegawa/lecture_image_processing/blob/master/image/org_img.png?raw=true)  
+}1 Œ´‰æ‘œ
