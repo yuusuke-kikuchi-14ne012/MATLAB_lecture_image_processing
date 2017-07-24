@@ -6,22 +6,36 @@
 
 
 clear; % 変数のオールクリア
+
 ORG=imread('gravure_255_rika.jpg'); % 原画像の入力
+
 i = 2; % 変数宣言（初期値）
+
 x = ORG; % 画像をxに代入
 
+
 prompt = {'１回につきサンプリング間隔を2倍にします。何回標本化しますか？整数で入力してください'};
+
 dlg_title = '標本化回数';
+
 num_lines = 1;
+
 defaultans = {'10'};
+
 n = inputdlg(prompt,dlg_title,num_lines,defaultans);
+
 data = str2num(n{:});
+
 t = i.^(data + 1);
+
 imagesc(x); axis image; % 画像の表示
+
 pause; % 一時停止
+
 
 以上によりサンプリング回数の指定を行う。
 サンプリング回数の指定BOXを図１に示す。
+
 
 ![サンプリング回数の指定BOX](https://github.com/yuusuke-kikuchi-14ne012/MATLAB_lecture_image_processing/blob/master/image/kadai1-1.png)
 図1 サンプリング回数の指定BOX
